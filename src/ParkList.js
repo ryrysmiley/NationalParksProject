@@ -6,6 +6,12 @@ export function ParkList() {
 	const [items, setItems] = useState([]);
 	const [stateCode, setStateCode] = useState(undefined);
 
+	const [currState, setCurrState] = useState(undefined);
+
+	function handleChange(event){
+		console.log(event.target.value);
+		setCurrState(event.target.value);
+	}
 	// Note: the empty deps array [] means
 	// this useEffect will run once
 	// similar to componentDidMount()
@@ -46,12 +52,12 @@ export function ParkList() {
 			{!isLoaded && <div>Loading...</div>}
 			<ul>
 				{items.map((item) => (
-					<li>
-						<a href={item.url}>{item.fullName}</a>
-						{/*can i assign object here and pass it to the info page */}
+					<li>{/*add key? also the part below is huge*/}
+						<button value={item.parkCode} onClick={handleChange}>{item.fullName}</button>
 					</li>
 				))}
 			</ul>
+			{currState && <div>{currState}</div>}
 		</div>
 	);
 }
