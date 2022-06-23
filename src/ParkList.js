@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { stateCodes } from "./Util";
 export function ParkList() {
 	const [error, setError] = useState(null);
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoaded, setIsLoaded] = useState(true);
 	const [items, setItems] = useState([]);
 	const [stateCode, setStateCode] = useState(undefined);
-	const stateList = useRef(null);
 
 	// Note: the empty deps array [] means
 	// this useEffect will run once
@@ -15,32 +14,28 @@ export function ParkList() {
 			fetch(
 				`https://developer.nps.gov/api/v1/parks?stateCode=${stateCode}&limit=50&start=0&api_key=gRyYNgbX0OguVok1HtmebuRAJ9P5c320vsQhH1bD`
 			)
+				.then(setIsLoaded(false))
 				.then((res) => res.json())
 				.then(
 					(result) => {
-						setIsLoading(true);
+						setIsLoaded(true);
 						setItems(result.data);
 					},
 					// Note: it's important to handle errors here
 					// instead of a catch() block so that we don't swallow
 					// exceptions from actual bugs in components.
 					(error) => {
-						setIsLoading(true);
+						setIsLoaded(true);
 						setError(error);
 					}
 				);
 		}
 	}, [stateCode]);
 
-	function handleChange(event) {
-		setStateCode(stateList.value);
-		console.log(stateList.value);
-	}
-
 	return (
 		<div>
-			<select ref={stateList} onChange={handleChange}>
-				<option disabled selected value>
+			<select onChange={(e) => setStateCode(e.target.value)}>
+				<option disable selected value>
 					-- select a state --
 				</option>
 				{stateCodes.map((code) => (
@@ -48,28 +43,15 @@ export function ParkList() {
 				))}
 			</select>
 			{error && <div>Error: {error.message}</div>}
-			{!isLoading && <div>Loading...</div>}
+			{!isLoaded && <div>Loading...</div>}
 			<ul>
 				{items.map((item) => (
-					<li>{item.fullName}</li>
+					<li>
+						<a href={item.url}>{item.fullName}</a>
+						{/*can i assign object here and pass it to the info page */}
+					</li>
 				))}
 			</ul>
 		</div>
 	);
-
-	/*
-	if (error) {
-		return <div>Error: {error.message}</div>;
-	} else if (!isLoaded) {
-		return <div>Loading...</div>;
-	} else {
-		return (
-			<ul>
-				{items.map((item) => (
-					<li>{item.fullName}</li>
-				))}
-			</ul>
-		);
-	}
-	*/
 }
