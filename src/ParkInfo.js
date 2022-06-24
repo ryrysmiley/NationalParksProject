@@ -32,7 +32,7 @@ export function ParkInfo(props) {
 		<div>
 			{error && <div>Error: {error.message}</div>}
 			{!isLoaded && <div>Loading...</div>}
-			<p>{items[0].description}</p>
+			{items[0] && <div>{items[0].description}</div>}
 		</div>
 	);
 }
