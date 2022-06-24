@@ -3,7 +3,7 @@ export function ParkInfo(props) {
 	// description, contact info, entrance fees, directions, operating hours, image
 	const [error, setError] = useState(null);
 	const [isLoaded, setIsLoaded] = useState(true);
-	const [item, setItem] = useState([]);
+	const [items, setItems] = useState([]);
 
 	useEffect(() => {
 		if (props.currPark) {
@@ -15,7 +15,7 @@ export function ParkInfo(props) {
 				.then(
 					(result) => {
 						setIsLoaded(true);
-						setItem(result.data);
+						setItems(result.data);
 					},
 					// Note: it's important to handle errors here
 					// instead of a catch() block so that we don't swallow
@@ -30,10 +30,9 @@ export function ParkInfo(props) {
 
 	return (
 		<div>
-			<h1>{props.currPark}</h1>
 			{error && <div>Error: {error.message}</div>}
 			{!isLoaded && <div>Loading...</div>}
-			<h2>{item.indexOf(0).description}</h2>
+			<p>{items[0].description}</p>
 		</div>
 	);
 }

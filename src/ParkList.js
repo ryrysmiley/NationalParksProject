@@ -7,7 +7,6 @@ export function ParkList(props) {
 	const [stateCode, setStateCode] = useState(undefined);
 
 	function handleChange(event) {
-		console.log(event.target.value);
 		props.setCurrPark(event.target.value);
 	}
 	// Note: the empty deps array [] means
@@ -58,7 +57,6 @@ export function ParkList(props) {
 					</li>
 				))}
 			</ul>
-			{props.currPark && <div>{props.currPark}</div>}
 		</div>
 	);
 }
