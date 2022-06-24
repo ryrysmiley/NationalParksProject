@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { stateCodes } from "./Util";
-export function ParkList() {
+export function ParkList(props) {
 	const [error, setError] = useState(null);
 	const [isLoaded, setIsLoaded] = useState(true);
 	const [items, setItems] = useState([]);
 	const [stateCode, setStateCode] = useState(undefined);
 
-	const [currState, setCurrState] = useState(undefined);
-
-	function handleChange(event){
+	function handleChange(event) {
 		console.log(event.target.value);
-		setCurrState(event.target.value);
+		props.setCurrPark(event.target.value);
 	}
 	// Note: the empty deps array [] means
 	// this useEffect will run once
@@ -52,12 +50,15 @@ export function ParkList() {
 			{!isLoaded && <div>Loading...</div>}
 			<ul>
 				{items.map((item) => (
-					<li>{/*add key? also the part below is huge*/}
-						<button value={item.parkCode} onClick={handleChange}>{item.fullName}</button>
+					<li>
+						{/*add key? also the part below is huge*/}
+						<button value={item.parkCode} onClick={handleChange}>
+							{item.fullName}
+						</button>
 					</li>
 				))}
 			</ul>
-			{currState && <div>{currState}</div>}
+			{props.currPark && <div>{props.currPark}</div>}
 		</div>
 	);
 }
