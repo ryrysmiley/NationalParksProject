@@ -36,7 +36,7 @@ export function ParkList(props) {
 	}, [stateCode]);
 
 	return (
-		<div>
+		<div class="parklist">
 			<select onChange={(e) => setStateCode(e.target.value)}>
 				<option disable selected value>
 					-- select a state --
@@ -47,10 +47,9 @@ export function ParkList(props) {
 			</select>
 			{error && <div>Error: {error.message}</div>}
 			{!isLoaded && <div>Loading...</div>}
-			<ul>
+			<ul class="parklist">
 				{items.map((item) => (
-					<li>
-						{/*add key? also the part below is huge*/}
+					<li class="parklist">
 						<button value={item.parkCode} onClick={handleChange}>
 							{item.fullName}
 						</button>

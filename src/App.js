@@ -1,4 +1,5 @@
 import { Home } from "./Home.js";
+import "./index.css";
 function App() {
 	return (
 		<div>

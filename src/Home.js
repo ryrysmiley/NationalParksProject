@@ -5,7 +5,7 @@ import { useState } from "react";
 export function Home() {
 	const [currPark, setCurrPark] = useState(undefined);
 	return (
-		<div>
+		<div class="home">
 			<ParkList currPark={currPark} setCurrPark={setCurrPark} />
 			<ParkInfo currPark={currPark} />
 		</div>

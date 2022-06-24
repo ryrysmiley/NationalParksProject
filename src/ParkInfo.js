@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 export function ParkInfo(props) {
-	// description, contact info, entrance fees, directions, operating hours, image
+	// description, contact info, directions, operating hours, image
 	const [error, setError] = useState(null);
 	const [isLoaded, setIsLoaded] = useState(true);
 	const [items, setItems] = useState([]);
@@ -29,7 +29,7 @@ export function ParkInfo(props) {
 	}, [props.currPark]);
 
 	return (
-		<div>
+		<div class="parkinfo">
 			{error && <div>Error: {error.message}</div>}
 			{!isLoaded && <div>Loading...</div>}
 			{items[0] && <div>{items[0].description}</div>}
