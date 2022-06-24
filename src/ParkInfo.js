@@ -34,18 +34,39 @@ export function ParkInfo(props) {
 			{!isLoaded && <div>Loading...</div>}
 			{items[0] && <div>{items[0].description}</div>}
 			{items[0] && <div>{items[0].contacts.phoneNumbers[0].phoneNumber}</div>}
-			{items[0] && <div>{items[0].contacts.emailAddresses[0].emailAddress}</div>}
+			{items[0] && (
+				<div>{items[0].contacts.emailAddresses[0].emailAddress}</div>
+			)}
 			{items[0] && <div>{items[0].directionsInfo}</div>}
 			{items[0] && <div>{items[0].operatingHours[0].description}</div>}
-			{items[0] && <div>Monday: {items[0].operatingHours[0].standardHours.monday}</div>}
-			{items[0] && <div>Tuesday: {items[0].operatingHours[0].standardHours.tuesday}</div>}
-			{items[0] && <div>Wednesday: {items[0].operatingHours[0].standardHours.wednesday}</div>}
-			{items[0] && <div>Thursday: {items[0].operatingHours[0].standardHours.thursday}</div>}
-			{items[0] && <div>Friday: {items[0].operatingHours[0].standardHours.friday}</div>}
-			{items[0] && <div>Saturday: {items[0].operatingHours[0].standardHours.saturday}</div>}
-			{items[0] && <div>Sunday: {items[0].operatingHours[0].standardHours.sunday}</div>}
-			{items[0] && <div><img src={items[0].images[0].url}></img></div>}
+			{items[0] && (
+				<div>Monday: {items[0].operatingHours[0].standardHours.monday}</div>
+			)}
+			{items[0] && (
+				<div>Tuesday: {items[0].operatingHours[0].standardHours.tuesday}</div>
+			)}
+			{items[0] && (
+				<div>
+					Wednesday: {items[0].operatingHours[0].standardHours.wednesday}
+				</div>
+			)}
+			{items[0] && (
+				<div>Thursday: {items[0].operatingHours[0].standardHours.thursday}</div>
+			)}
+			{items[0] && (
+				<div>Friday: {items[0].operatingHours[0].standardHours.friday}</div>
+			)}
+			{items[0] && (
+				<div>Saturday: {items[0].operatingHours[0].standardHours.saturday}</div>
+			)}
+			{items[0] && (
+				<div>Sunday: {items[0].operatingHours[0].standardHours.sunday}</div>
+			)}
+			{items[0] && (
+				<div>
+					<img src={items[0].images[0].url} alt="balls"></img>
+				</div>
+			)}
 		</div>
-		
 	);
 }

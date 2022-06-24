@@ -47,10 +47,10 @@ export function ParkList(props) {
 			</select>
 			{error && <div>Error: {error.message}</div>}
 			{!isLoaded && <div>Loading...</div>}
-			<ul class="parklist">
+			<ul>
 				{items.map((item) => (
 					<li class="parklist">
-						<button value={item.parkCode} onClick={handleChange}>
+						<button class="park" value={item.parkCode} onClick={handleChange}>
 							{item.fullName}
 						</button>
 					</li>

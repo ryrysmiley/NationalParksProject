@@ -22,5 +22,6 @@ ul .parklist {
 	padding: 0;
 }
 li .parklist {
+	width: 100%;
 	list-style-type: none;
 }
