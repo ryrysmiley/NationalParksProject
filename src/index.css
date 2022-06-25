@@ -2,27 +2,39 @@
 html {
 	padding: 0;
 	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+/*Navbar*/
+.Navbar {
+	height: 6vh;
+	width: 100%;
 }
 /*Home Breakdown*/
 div.home {
-	height: 100vh;
+	height: 94vh;
 	width: 100%;
 }
 /*Park List Breakdown*/
 div.parklist {
 	height: 100%;
-	width: 40%;
+	width: 30%;
 	float: left;
-	background-color: green;
+	background-color: #1e2f23;
+	overflow-y: auto;
 }
 div.parkinfo {
 	height: 100%;
-	width: 60%;
+	width: 70%;
 	float: right;
 	background-color: greenyellow;
+	overflow-y: auto;
 }
 select.stateselect {
+	height: 30px;
 	width: 100%;
+	padding-left: 2%;
+	font-size: medium;
+	font-weight: bold;
 }
 ul.parklist {
 	margin: 0;
@@ -36,5 +48,28 @@ li.parklist {
 }
 
 button.park {
+	height: 40px;
 	width: 100%;
+	background-color: #1e2f23;
+	color: whitesmoke;
+	text-align: left;
+	padding-left: 3%;
+	font-size: medium;
+	font-weight: bold;
+	border-style: none;
+}
+
+button.park:hover {
+	color: #34623f;
+}
+
+.casehandling {
+	height: 20px;
+	width: 100%;
+	color: whitesmoke;
+	text-align: left;
+	padding-left: 3%;
+	padding-top: 2%;
+	font-size: medium;
+	font-weight: bold;
 }

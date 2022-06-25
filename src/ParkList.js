@@ -41,15 +41,13 @@ export function ParkList(props) {
 				class="stateselect"
 				onChange={(e) => setStateCode(e.target.value)}
 			>
-				<option disable selected value>
-					-- select a state --
-				</option>
+				<option disabled>-- select a state --</option>
 				{stateCodes.map((code) => (
 					<option value={code.stateCode}>{code.name}</option>
 				))}
 			</select>
-			{error && <div>Error: {error.message}</div>}
-			{!isLoaded && <div>Loading...</div>}
+			{error && <div class="casehandling">Error: {error.message}</div>}
+			{!isLoaded && <div class="casehandling">Loading...</div>}
 			<ul class="parklist">
 				{items.map((item) => (
 					<li class="parklist">
