@@ -43,23 +43,41 @@ div.home {
 /*Park List Breakdown*/
 div.parklist {
 	height: 100%;
-	width: 30%;
+	width: 27%;
 	float: left;
 	background-color: #1e2f23;
 	overflow-y: auto;
 }
 div.parkinfo {
 	height: 100%;
-	width: 70%;
+	width: 73%;
 	float: right;
 	background-color: greenyellow;
 	overflow-y: auto;
+}
+div.defaultinfo {
+	margin: auto;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	/*text settings*/
+	color: white;
+	font-size: 4em;
+	font-weight: bolder;
 }
 select.stateselect {
 	height: 30px;
 	width: 100%;
 	padding-left: 2%;
 	font-size: medium;
+}
+select.stateselect:active,
+select:hover,
+select:focus {
+	outline: none;
 }
 option.defaulted {
 	color: lightgrey;
