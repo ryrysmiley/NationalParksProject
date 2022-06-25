@@ -32,13 +32,15 @@ export function ParkInfo(props) {
 		<div class="parkinfo">
 			{error && <div>Error: {error.message}</div>}
 			{!isLoaded && <div>Loading...</div>}
-			{items[0] && <div>{items[0].description}</div>}
-			{items[0] && <div>{items[0].contacts.phoneNumbers[0].phoneNumber}</div>}
+			{items[0] && <div class="name"><h1>{items[0].fullName}</h1></div>}
+			{items[0] && <div class="description"><strong>Description: </strong>{items[0].description}</div>}
+			{items[0] && <div class="phoneNumber"><strong>Phone Number: </strong>{items[0].contacts.phoneNumbers[0].phoneNumber}</div>}
 			{items[0] && (
-				<div>{items[0].contacts.emailAddresses[0].emailAddress}</div>
+				<div class="email"><strong>Email: </strong>{items[0].contacts.emailAddresses[0].emailAddress}</div>
 			)}
-			{items[0] && <div>{items[0].directionsInfo}</div>}
-			{items[0] && <div>{items[0].operatingHours[0].description}</div>}
+			{items[0] && <div class="directions"><strong>Directions: </strong>{items[0].directionsInfo}</div>}
+			{items[0] && <div class="operatinghours"><strong>Operating Hours: </strong>{items[0].operatingHours[0].description}</div>}
+			<div class="days">
 			{items[0] && (
 				<div>Monday: {items[0].operatingHours[0].standardHours.monday}</div>
 			)}
@@ -62,11 +64,14 @@ export function ParkInfo(props) {
 			{items[0] && (
 				<div>Sunday: {items[0].operatingHours[0].standardHours.sunday}</div>
 			)}
+			</div>
+			{items[0] && <div class="website"><strong>Official Park Website: </strong><a href={items[0].url} target="blank">{items[0].url}</a></div>}
 			{items[0] && (
-				<div>
+				<div class="image">
 					<img src={items[0].images[0].url} alt="balls"></img>
 				</div>
 			)}
+			
 		</div>
 	);
 }
