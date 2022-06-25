@@ -1,27 +1,40 @@
+*,
+html {
+	padding: 0;
+	margin: 0;
+}
 /*Home Breakdown*/
-div .home {
+div.home {
 	height: 100vh;
 	width: 100%;
 }
 /*Park List Breakdown*/
-div .parklist {
+div.parklist {
 	height: 100%;
 	width: 40%;
 	float: left;
 	background-color: green;
 }
-div .parkinfo {
+div.parkinfo {
 	height: 100%;
 	width: 60%;
 	float: right;
 	background-color: greenyellow;
 }
-
-ul .parklist {
+select.stateselect {
+	width: 100%;
+}
+ul.parklist {
 	margin: 0;
 	padding: 0;
 }
-li .parklist {
-	width: 100%;
+
+li.parklist {
+	margin: 0;
+	padding: 0;
 	list-style-type: none;
+}
+
+button.park {
+	width: 100%;
 }
