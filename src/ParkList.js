@@ -41,7 +41,9 @@ export function ParkList(props) {
 				class="stateselect"
 				onChange={(e) => setStateCode(e.target.value)}
 			>
-				<option disabled>-- select a state --</option>
+				<option class="defaulted" disabled selected>
+					-- select a state --
+				</option>
 				{stateCodes.map((code) => (
 					<option value={code.stateCode}>{code.name}</option>
 				))}

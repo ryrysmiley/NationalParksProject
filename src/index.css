@@ -2,7 +2,28 @@
 html {
 	padding: 0;
 	margin: 0;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+/*Scrollbar*/
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: whitesmoke;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #607744;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #34623f;
 }
 /*Navbar*/
 .Navbar {
@@ -34,7 +55,10 @@ select.stateselect {
 	width: 100%;
 	padding-left: 2%;
 	font-size: medium;
-	font-weight: bold;
+}
+option.defaulted {
+	color: lightgrey;
+	font-weight: lighter;
 }
 ul.parklist {
 	margin: 0;
