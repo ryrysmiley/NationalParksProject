@@ -25,6 +25,12 @@ html {
 ::-webkit-scrollbar-thumb:hover {
 	background: #34623f;
 }
+img{
+	max-height: 35%;
+	max-width: 35%;
+	float: right;
+	margin: 10px;
+}
 /*Navbar*/
 .Navbar {
 	height: 6vh;
@@ -96,4 +102,37 @@ button.park:hover {
 	padding-top: 2%;
 	font-size: medium;
 	font-weight: bold;
+}
+
+.name{
+	margin: 15px;
+	
+}
+
+.description{
+	margin: 15px;
+}
+
+.phoneNumber{
+	margin: 15px;
+}
+
+.email{
+	margin: 15px;
+}
+
+.directions{
+	margin: 15px;
+}
+
+.operatinghours{
+	margin: 15px;
+}
+
+.days{
+	margin: 15px;
+}
+
+.website{
+	margin: 15px;
 }
