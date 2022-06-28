@@ -52,7 +52,7 @@ div.parkinfo {
 	height: 100%;
 	width: 73%;
 	float: right;
-	background-color: greenyellow;
+	background-color: white;
 	overflow-y: auto;
 }
 div.defaultinfo {
@@ -69,9 +69,12 @@ div.defaultinfo {
 	background-size: cover;
 	/*text settings*/
 	color: white;
-	font-size: 4em;
+	font-size: 4.7em;
 	font-weight: bolder;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: black;
 }
+
 select.stateselect {
 	height: 30px;
 	width: 100%;

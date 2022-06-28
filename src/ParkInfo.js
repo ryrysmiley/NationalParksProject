@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 export function ParkInfo(props) {
 	// description, contact info, directions, operating hours, image
-	const [error, setError] = useState(null);
-	const [isLoaded, setIsLoaded] = useState(true);
 	const [items, setItems] = useState([]);
+	const [park, setPark] = useState(undefined);
 
 	useEffect(() => {
-		if (props.currPark) {
+		//setPark(props.parkDatabase[]);
+		/*if (props.currPark) {
 			fetch(
 				`https://developer.nps.gov/api/v1/parks?parkCode=${props.currPark}&limit=1&api_key=gRyYNgbX0OguVok1HtmebuRAJ9P5c320vsQhH1bD`
 			)
@@ -25,13 +25,11 @@ export function ParkInfo(props) {
 						setError(error);
 					}
 				);
-		}
-	}, [props.currPark]);
+		}*/
+	}, [park]);
 
 	return (
 		<div class="parkinfo">
-			{error && <div>Error: {error.message}</div>}
-			{!isLoaded && <div>Loading...</div>}
 			{!items[0] && (
 				<div class="defaultinfo">
 					START <br></br> EXPLORING
@@ -48,12 +46,14 @@ export function ParkInfo(props) {
 					{items[0].description}
 				</div>
 			)}
+			{/*
 			{items[0] && (
 				<div class="phoneNumber">
 					<strong>Phone Number: </strong>
 					{items[0].contacts.phoneNumbers[0].phoneNumber}
 				</div>
 			)}
+			*/}
 			{items[0] && (
 				<div class="email">
 					<strong>Email: </strong>
