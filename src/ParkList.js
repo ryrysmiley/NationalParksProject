@@ -8,6 +8,7 @@ export function ParkList(props) {
 		<div class="parklist">
 			<select
 				class="stateselect"
+				disabled={!props.isLoaded}
 				onChange={(e) => props.setStateCode(e.target.value)}
 			>
 				<option class="defaulted" disabled selected>

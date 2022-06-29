@@ -1,121 +1,110 @@
 import React, { useState, useEffect } from "react";
 export function ParkInfo(props) {
 	// description, contact info, directions, operating hours, image
-	const [items, setItems] = useState([]);
-	const [park, setPark] = useState(undefined);
-
+	const [displayPark, setDisplayPark] = useState(undefined);
 	useEffect(() => {
-		//setPark(props.parkDatabase[]);
-		/*if (props.currPark) {
-			fetch(
-				`https://developer.nps.gov/api/v1/parks?parkCode=${props.currPark}&limit=1&api_key=gRyYNgbX0OguVok1HtmebuRAJ9P5c320vsQhH1bD`
-			)
-				.then(setIsLoaded(false))
-				.then((res) => res.json())
-				.then(
-					(result) => {
-						setIsLoaded(true);
-						setItems(result.data);
-					},
-					// Note: it's important to handle errors here
-					// instead of a catch() block so that we don't swallow
-					// exceptions from actual bugs in components.
-					(error) => {
-						setIsLoaded(true);
-						setError(error);
-					}
-				);
-		}*/
-	}, [park]);
+		if (props.currPark) {
+			setDisplayPark(
+				props.parkDatabase[props.stateCode].find(
+					(park) => park.parkCode === props.currPark
+				)
+			);
+		}
+		// eslint-disable-next-line
+	}, [props.currPark]);
 
 	return (
 		<div class="parkinfo">
-			{!items[0] && (
+			{!displayPark && (
 				<div class="defaultinfo">
 					START <br></br> EXPLORING
 				</div>
 			)}
-			{items[0] && (
+			{displayPark && (
 				<div class="name">
-					<h1>{items[0].fullName}</h1>
+					<h1>{displayPark.fullName}</h1>
 				</div>
 			)}
-			{items[0] && (
+			{displayPark && (
 				<div class="description">
 					<strong>Description: </strong>
-					{items[0].description}
+					{displayPark.description}
 				</div>
 			)}
-			{/*
-			{items[0] && (
+			{displayPark && (
 				<div class="phoneNumber">
 					<strong>Phone Number: </strong>
-					{items[0].contacts.phoneNumbers[0].phoneNumber}
+					{displayPark.contacts.phoneNumbers[0].phoneNumber}
 				</div>
 			)}
-			*/}
-			{items[0] && (
+			{displayPark && (
 				<div class="email">
 					<strong>Email: </strong>
-					{items[0].contacts.emailAddresses[0].emailAddress}
+					{displayPark.contacts.emailAddresses[0].emailAddress}
 				</div>
 			)}
-			{items[0] && (
+			{displayPark && (
 				<div class="directions">
 					<strong>Directions: </strong>
-					{items[0].directionsInfo}
+					{displayPark.directionsInfo}
 				</div>
 			)}
-			{items[0] && (
+			{displayPark && (
 				<div class="operatinghours">
 					<strong>Operating Hours: </strong>
-					{items[0].operatingHours[0].description}
+					{displayPark.operatingHours[0].description}
 				</div>
 			)}
-			{items[0] && (
+			{displayPark && (
 				<div class="days">
-					{items[0] && (
-						<div>Monday: {items[0].operatingHours[0].standardHours.monday}</div>
-					)}
-					{items[0] && (
+					{displayPark && (
 						<div>
-							Tuesday: {items[0].operatingHours[0].standardHours.tuesday}
+							Monday: {displayPark.operatingHours[0].standardHours.monday}
 						</div>
 					)}
-					{items[0] && (
+					{displayPark && (
 						<div>
-							Wednesday: {items[0].operatingHours[0].standardHours.wednesday}
+							Tuesday: {displayPark.operatingHours[0].standardHours.tuesday}
 						</div>
 					)}
-					{items[0] && (
+					{displayPark && (
 						<div>
-							Thursday: {items[0].operatingHours[0].standardHours.thursday}
+							Wednesday: {displayPark.operatingHours[0].standardHours.wednesday}
 						</div>
 					)}
-					{items[0] && (
-						<div>Friday: {items[0].operatingHours[0].standardHours.friday}</div>
-					)}
-					{items[0] && (
+					{displayPark && (
 						<div>
-							Saturday: {items[0].operatingHours[0].standardHours.saturday}
+							Thursday: {displayPark.operatingHours[0].standardHours.thursday}
 						</div>
 					)}
-					{items[0] && (
-						<div>Sunday: {items[0].operatingHours[0].standardHours.sunday}</div>
+					{displayPark && (
+						<div>
+							Friday: {displayPark.operatingHours[0].standardHours.friday}
+						</div>
+					)}
+					{displayPark && (
+						<div>
+							Saturday: {displayPark.operatingHours[0].standardHours.saturday}
+						</div>
+					)}
+					{displayPark && (
+						<div>
+							Sunday: {displayPark.operatingHours[0].standardHours.sunday}
+						</div>
 					)}
 				</div>
 			)}
-			{items[0] && (
+			{displayPark && (
 				<div class="website">
 					<strong>Official Park Website: </strong>
-					<a href={items[0].url} target="blank">
-						{items[0].url}
+					<a href={displayPark.url} target="blank">
+						{displayPark.url}
 					</a>
 				</div>
 			)}
-			{items[0] && (
+			{displayPark && (
 				<div class="image">
-					<img src={items[0].images[0].url} alt="balls"></img>
+					<img src={displayPark.images[0].url} alt="balls"></img>
 				</div>
 			)}
 		</div>
