@@ -52,7 +52,7 @@ div.parkinfo {
 	height: 100%;
 	width: 73%;
 	float: right;
-	background-color: greenyellow;
+	background-color: red;
 	overflow-y: auto;
 }
 div.defaultinfo {
