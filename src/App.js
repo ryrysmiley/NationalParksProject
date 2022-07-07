@@ -1,4 +1,8 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./Home.js";
+import { Layout } from "./Layout.js";
+import { SignIn } from "./SignIn";
+import { UserParks } from "./UserParks.js";
 import "./index.css";
 import React, { useState, useEffect } from "react";
 function App() {
@@ -40,10 +44,15 @@ function App() {
 	}
 
 	return (
-		<div>
-			<h1 class="Navbar">NATIONAL PARKS</h1>
-			<Home parkDatabase={parkDatabase} error={error} isLoaded={isLoaded} />
-		</div>
+		<BrowserRouter>
+			<Routes>
+				<Route path="/" element ={<Layout/>}>
+					<Route index element={<Home parkDatabase={parkDatabase} error={error} isLoaded={isLoaded} />}/>
+					<Route path="mysavedparks" element={<UserParks />} />
+					<Route path="signin" element={<SignIn />} />
+				</Route>
+			</Routes>
+		</BrowserRouter>
 	);
 }
 
