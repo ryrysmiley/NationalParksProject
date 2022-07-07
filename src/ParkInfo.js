@@ -25,37 +25,43 @@ export function ParkInfo(props) {
 					<h1>{displayPark.fullName}</h1>
 				</div>
 			)}
+			
 			{displayPark && (
 				<div class="description">
 					<strong>Description: </strong>
 					{displayPark.description}
 				</div>
 			)}
-			{displayPark && (
+
+			{displayPark && displayPark.contacts.phoneNumbers[0] && (
 				<div class="phoneNumber">
 					<strong>Phone Number: </strong>
 					{displayPark.contacts.phoneNumbers[0].phoneNumber}
 				</div>
 			)}
+
 			{displayPark && (
 				<div class="email">
 					<strong>Email: </strong>
 					{displayPark.contacts.emailAddresses[0].emailAddress}
 				</div>
 			)}
+
 			{displayPark && (
 				<div class="directions">
 					<strong>Directions: </strong>
 					{displayPark.directionsInfo}
 				</div>
 			)}
-			{displayPark && (
+
+			{displayPark && displayPark.operatingHours[0] && (
 				<div class="operatinghours">
 					<strong>Operating Hours: </strong>
 					{displayPark.operatingHours[0].description}
 				</div>
 			)}
-			{displayPark && (
+
+			{displayPark && displayPark.operatingHours[0] && (
 				<div class="days">
 					{displayPark && (
 						<div>
@@ -94,6 +100,7 @@ export function ParkInfo(props) {
 					)}
 				</div>
 			)}
+
 			{displayPark && (
 				<div class="website">
 					<strong>Official Park Website: </strong>
@@ -102,6 +109,7 @@ export function ParkInfo(props) {
 					</a>
 				</div>
 			)}
+
 			{displayPark && (
 				<div class="image">
 					<img src={displayPark.images[0].url} alt="balls"></img>
