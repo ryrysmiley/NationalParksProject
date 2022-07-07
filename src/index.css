@@ -31,9 +31,40 @@ img {
 	margin: 10px;
 }
 /*Navbar*/
-.Navbar {
+nav.Navbar{
 	height: 6vh;
 	width: 100%;
+	background-color: green;
+}
+ul.Navbar{
+	flex-shrink: inherit;
+	height: 100%;
+	width: 100%;
+	list-style-type: none;
+}
+
+li.Navbar{
+	height: 100%;
+	float: left;
+}
+a.Navbar{
+	height: 100%;
+	color: black;
+	text-decoration: none;
+	margin: auto;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	white-space: nowrap;
+	font-size: larger;
+	font-weight: bolder;
+	display: block;
+	padding: 10px;
+}
+a:hover.Navbar{
+	background-color: #34623f;
+	
 }
 /*Home Breakdown*/
 div.home {
@@ -128,6 +159,7 @@ button.park:hover {
 	font-weight: bold;
 }
 
+/*justin lee*/
 .name {
 	margin: 15px;
 }
@@ -158,4 +190,47 @@ button.park:hover {
 
 .website {
 	margin: 15px;
+}
+
+/*sign in*/
+.signin {
+	width: 100%;
+	height: 94vh;
+	background-image: url("../public/images/north-cascades-np.webp");
+	background-position: center;
+	background-size: cover;
+}
+
+.signin form{
+	width: 25%;
+	height: 50vh;
+	background: forestgreen;
+	justify-content: center;
+	display: flex;
+	align-items: center;
+	margin: auto;
+	min-width: 200px;
+	min-height: 200px;
+	border-radius: 20px;
+}
+.signin form div{
+	width: 80%;
+	margin: auto;
+	text-align: center;
+}
+.signin form label{
+	font-weight: bolder;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+	margin-top: 3%;
+}
+.submit{
+	width: 30%;
+	margin: 4%
+}
+.inputboxes{
+	width: 100%;
+	font-size: larger;
 }
