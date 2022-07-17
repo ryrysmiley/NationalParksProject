@@ -6,7 +6,7 @@ export function Home(props) {
 	const [currPark, setCurrPark] = useState(undefined);
 	const [stateCode, setStateCode] = useState(undefined);
 	return (
-		<div class="home">
+		<div className="home">
 			<ParkList
 				parkDatabase={props.parkDatabase}
 				error={props.error}

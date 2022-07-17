@@ -5,28 +5,29 @@ export function ParkList(props) {
 	}
 
 	return (
-		<div class="parklist">
+		<div className="parklist">
 			<select
-				class="stateselect"
-				disabled={!props.isLoaded}
+				className="stateselect"
+				disabled={!props.isLoaded || props.error}
+				defaultValue={"default"}
 				onChange={(e) => props.setStateCode(e.target.value)}
 			>
-				<option class="defaulted" disabled selected>
+				<option className="defaulted" value="default" disabled>
 					-- select a state --
 				</option>
 				{stateCodes.map((code) => (
-					<option value={code.stateCode}>{code.name}</option>
+					<option key={code.stateCode} value={code.stateCode}>{code.name}</option>
 				))}
 			</select>
 			{props.error && (
-				<div class="casehandling">Error: {props.error.message}</div>
+				<div className="casehandling">Error: {props.error.message}</div>
 			)}
-			{!props.isLoaded && <div class="casehandling">Loading...</div>}
+			{!props.isLoaded && <div className="casehandling">Loading...</div>}
 			{props.stateCode && (
-				<ul class="parklist">
-					{props.parkDatabase[props.stateCode].map((item, i) => (
-						<li class="parklist" key={i}>
-							<button class="park" value={item.parkCode} onClick={handleChange}>
+				<ul className="parklist">
+					{props.parkDatabase[props.stateCode].map((item) => (
+						<li className="parklist" key={item.parkCode}>
+							<button className="park" value={item.parkCode} onClick={handleChange}>
 								{item.fullName}
 							</button>
 						</li>

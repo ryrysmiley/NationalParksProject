@@ -1,3 +1,6 @@
+import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
+import { GoogleAuthProvider, getAuth } from "firebase/auth";
 export const stateCodes = [
 	{ name: "Alabama", stateCode: "AL" },
 	{ name: "Alaska", stateCode: "AK" },
@@ -50,3 +53,20 @@ export const stateCodes = [
 	{ name: "Wisconsin", stateCode: "WI" },
 	{ name: "Wyoming", stateCode: "WY" },
 ];
+
+const firebaseConfig = {
+	apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
+	authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
+	projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
+	storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
+	messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,
+	appId: process.env.REACT_APP_FIREBASE_APPID,
+	measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENTID,
+	databaseURL: process.env.REACT_APP_FIREBASE_DATABASEURL
+};
+	
+// Initialize Firebase
+export const app = initializeApp(firebaseConfig);
+export const provider = new GoogleAuthProvider();
+export const auth = getAuth();
+export const userPDatabase = getDatabase(app);

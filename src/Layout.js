@@ -1,17 +1,17 @@
 import { Outlet, Link } from "react-router-dom"
 export function Layout(){
     return(
-        <div class="Navbar">
-            <nav class="Navbar">
-                <ul class="Navbar">
-                    <li class="Navbar">
-                        <Link to="/" class="Navbar">Explore National Parks</Link>
+        <div className="Navbar">
+            <nav className="Navbar">
+                <ul className="Navbar">
+                    <li className="Navbar">
+                        <Link to="/" className="Navbar">Explore National Parks</Link>
                     </li>
-                    <li class="Navbar">
-                        <Link to="/mysavedparks" class="Navbar">Saved Parks</Link>
+                    <li className="Navbar">
+                        <Link to="/mysavedparks" className="Navbar">Saved Parks</Link>
                     </li>
-                    <li class="Navbar">
-                        <Link to="/signin" class="Navbar">Account</Link>
+                    <li className="Navbar">
+                        <Link to="/Account" className="Navbar">Account</Link>
                     </li>
                 </ul>
             </nav>

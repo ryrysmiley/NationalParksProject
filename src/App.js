@@ -1,19 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./Home.js";
 import { Layout } from "./Layout.js";
-import { SignIn } from "./SignIn";
+import { Account } from "./Account";
 import { UserParks } from "./UserParks.js";
 import "./index.css";
 import React, { useState, useEffect } from "react";
+import { UserContextProvider } from "./UserUpdates.js";
+
 function App() {
 	const [error, setError] = useState(null);
 	const [isLoaded, setIsLoaded] = useState(true);
 	const [items, setItems] = useState([]);
 	let parkDatabase = {};
-
 	useEffect(() => {
 		fetch(
-			"https://developer.nps.gov/api/v1/parks?limit=500&api_key=gRyYNgbX0OguVok1HtmebuRAJ9P5c320vsQhH1bD"
+			`https://developer.nps.gov/api/v1/parks?limit=500&api_key=${process.env.REACT_APP_NPS_APIKEY}`, 
 		)
 			.then(setIsLoaded(false))
 			.then((res) => res.json())
@@ -44,15 +45,17 @@ function App() {
 	}
 
 	return (
-		<BrowserRouter>
-			<Routes>
-				<Route path="/" element ={<Layout/>}>
-					<Route index element={<Home parkDatabase={parkDatabase} error={error} isLoaded={isLoaded} />}/>
-					<Route path="mysavedparks" element={<UserParks />} />
-					<Route path="signin" element={<SignIn />} />
-				</Route>
-			</Routes>
-		</BrowserRouter>
+		<UserContextProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element ={<Layout/>}>
+						<Route index element={<Home parkDatabase={parkDatabase} error={error} isLoaded={isLoaded} />}/>
+						<Route path="mysavedparks" element={<UserParks parkDatabase={parkDatabase} error={error} isLoaded={isLoaded} />} />
+						<Route path="account" element={<Account />} />
+					</Route>
+				</Routes>
+			</BrowserRouter>
+		</UserContextProvider>
 	);
 }
 
