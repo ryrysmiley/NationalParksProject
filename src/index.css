@@ -33,11 +33,11 @@ img {
 	margin: 10px;
 }
 /*Navbar*/
-nav.Navbar{
+nav.Navbar {
 	height: 42px;
 	width: 100%;
 }
-ul.Navbar{
+ul.Navbar {
 	height: 100%;
 	width: 100%;
 	background-color: #a8b4a5;
@@ -46,13 +46,13 @@ ul.Navbar{
 	text-align: center;
 }
 
-li.Navbar{
+li.Navbar {
 	height: 100%;
 	float: left;
 	border-right-style: solid;
 	border-color: cadetblue;
 }
-a.Navbar{
+a.Navbar {
 	width: 100%;
 	height: 100%;
 	color: black;
@@ -65,12 +65,12 @@ a.Navbar{
 	font-weight: bolder;
 	padding: 8px 40px 8px 0px;
 }
-a:hover.Navbar{
+a:hover.Navbar {
 	color: white;
 }
 /*Home Breakdown*/
 div.home {
-	height: 94vh;
+	height: 100vh;
 	width: 100%;
 }
 /*Park Breakdown*/
@@ -195,8 +195,8 @@ button.park:hover {
 }
 
 /*sign in*/
-.signin{
-	height: 94vh;
+.signin {
+	height: 100vh;
 	width: 100%;
 	text-align: center;
 	justify-content: center;
@@ -205,7 +205,7 @@ button.park:hover {
 	background-position: center;
 	background-size: cover;
 }
-.userInfo{
+.userInfo {
 	width: 50%;
 	height: 100%;
 	justify-content: center;
@@ -217,7 +217,7 @@ button.park:hover {
 	-webkit-text-stroke-color: black;
 }
 
-.pfp{
+.pfp {
 	height: 125px;
 	width: 125px;
 	min-height: 125px;
@@ -228,7 +228,7 @@ button.park:hover {
 	border-style: solid;
 }
 
-.signinpopup{
+.signinpopup {
 	height: 2em;
 	padding: 0 20px;
 	margin: auto;
@@ -236,7 +236,7 @@ button.park:hover {
 	overflow: hidden;
 }
 
-.fillright{
+.fillright {
 	width: 50%;
 	height: 100%;
 	justify-content: center;
@@ -244,7 +244,7 @@ button.park:hover {
 	display: flex;
 }
 
-.signoutpopup{
+.signoutpopup {
 	height: 2em;
 	padding: 0 20px;
 	margin: 0 auto;
